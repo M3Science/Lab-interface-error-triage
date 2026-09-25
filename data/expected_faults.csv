@@ -1,0 +1,35 @@
+message,expected_faults,scenario
+001_clean_bmp.hl7,,Normal chemistry
+002_clean_cbc.hl7,,Normal CBC
+003_clean_high_glucose.hl7,,"High glucose, correctly flagged H"
+004_clean_low_hgb.hl7,,"Low hemoglobin, correctly flagged L"
+005_clean_creatinine.hl7,,Single test
+006_clean_bmp.hl7,,Normal chemistry
+007_clean_cbc_high_wbc.hl7,,"High WBC, correctly flagged H"
+008_clean_preliminary.hl7,,Preliminary (P) result
+009_clean_cannot_obtain.hl7,,Status X with empty value is valid
+010_clean_bmp.hl7,,Normal chemistry
+011_clean_cbc.hl7,,Normal CBC
+012_clean_crlf.hl7,,Saved with CRLF/CR line endings
+013_missing_mrn.hl7,MISSING_REQUIRED_FIELD,PID-3 empty
+014_missing_accession.hl7,MISSING_REQUIRED_FIELD,OBR-3 empty
+015_accession_not_found.hl7,ACCESSION_NOT_FOUND,No order for this accession
+016_patient_mismatch.hl7,PATIENT_ID_MISMATCH,MRN differs from the order
+017_non_numeric.hl7,NON_NUMERIC_VALUE,Specimen comment in the value field
+018_unit_mismatch.hl7,UNIT_MISMATCH,"Glucose in SI units, LIS expects mg/dL"
+019_critical_high_k.hl7,CRITICAL_VALUE,Critical potassium
+020_flag_mismatch.hl7,ABNORMAL_FLAG_MISMATCH,Sodium 150 flagged normal
+021_unknown_test.hl7,UNKNOWN_TEST_CODE,Assay not built in the LIS
+022_invalid_status.hl7,INVALID_RESULT_STATUS,Status Z from middleware
+023_missing_value.hl7,MISSING_REQUIRED_FIELD,Final result with no value
+024_malformed_line.hl7,MALFORMED_SEGMENT,Free text line without segment structure
+025_missing_pid.hl7,MISSING_SEGMENT,No PID segment
+026_wrong_type.hl7,WRONG_MESSAGE_TYPE,ADT message on the results feed
+027_bad_timestamp.hl7,INVALID_DATETIME,MSH-7 in the wrong format
+028_future_collection.hl7,INVALID_DATETIME,Collected after the message was sent (clock drift)
+029_duplicate_message.hl7,DUPLICATE_MESSAGE;DUPLICATE_RESULT,Resend of message 001 after ACK timeout
+030_duplicate_final.hl7,DUPLICATE_RESULT,Rerun sent as F instead of C
+031_clean_corrected.hl7,,Correction sent properly as C
+032_missing_control_id.hl7,MISSING_REQUIRED_FIELD,MSH-10 empty
+033_critical_low_glucose.hl7,CRITICAL_VALUE,Critical glucose
+034_multi_fault.hl7,MISSING_REQUIRED_FIELD;NON_NUMERIC_VALUE,Missing MRN and clotted specimen comment
